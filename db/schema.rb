@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20171203110702) do
   create_table "authors", force: :cascade do |t|
     t.string "username"
     t.string "device_id"
-    t.boolean "blocked"
+    t.boolean "blocked", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["username"], name: "index_authors_on_username", unique: true
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20171203110702) do
 
   create_table "posts", force: :cascade do |t|
     t.string "content", limit: 140
-    t.boolean "hidden"
+    t.boolean "hidden", default: false, null: false
     t.integer "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
